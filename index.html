@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="80 animated titles for DaVinci Resolve - see every title moving.">
+<meta property="og:title" content="Lazy Title Pack">
+<meta property="og:image" content="cover.jpg">
+<link rel="icon" href="cover.jpg">
+<style>body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}</style>
+<title>Lazy Title Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Big+Shoulders+Display:wght@700;900&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: a broadcast title library - the promo up top like a programme monitor, then a rack of live title
+   loops per category, every loop playing on the same dark plate as in the edit. Single dark look by choice. */
+:root {
+  --ink: #0b0a10;          /* page */
+  --plate: #13111a;        /* card / monitor surround */
+  --rule: #2a2635;         /* hairlines */
+  --text: #f1edf7;
+  --muted: #9b95a9;
+  --gold: #ffc93c;         /* the one accent: marquee gold */
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Share Tech Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ink); color: var(--text); font: 400 16px/1.55 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ink); }
+.wrap { max-width: 1240px; margin: 0 auto; }
+a { color: var(--gold); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* hero */
+.hero { padding-block: 40px 28px; display: grid; gap: 28px; }
+.eyebrow { font: 400 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 900 clamp(64px, 12vw, 164px)/.82 var(--display); letter-spacing: -.01em; margin: 10px 0 0; text-transform: uppercase; text-wrap: balance; }
+h1 span { color: var(--gold); }
+.lead { font-size: clamp(17px, 2vw, 21px); max-width: 34em; margin: 0; color: var(--text); }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: center; }
+@media (min-width: 900px) { .stage { grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr); } }
+.cover { display: block; width: 100%; height: auto; max-width: 100%; box-shadow: 0 18px 40px rgba(0, 0, 0, .55); }
+.monitor { position: relative; background: var(--plate); border: 1px solid var(--rule); padding: 10px; }
+.monitor video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.monitor .tc { position: absolute; top: 18px; left: 20px; font: 400 12px/1 var(--mono); color: var(--gold); letter-spacing: .1em; pointer-events: none; }
+.monitor button { position: absolute; right: 20px; bottom: 20px; font: 700 13px/1 var(--body); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink); background: var(--gold); border: 0; padding: 10px 14px; cursor: pointer; }
+.specs { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0; padding: 0; list-style: none; }
+.specs li { font: 400 14px/1.2 var(--mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.specs b { display: block; font: 900 40px/1 var(--display); color: var(--text); letter-spacing: 0; }
+
+/* category nav */
+nav.cats { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--ink); border-block: 1px solid var(--rule);
+  display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+nav.cats a { flex: none; text-decoration: none; color: var(--text); font: 400 13px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid var(--rule); padding: 9px 12px; }
+nav.cats a:hover { border-color: var(--gold); color: var(--gold); }
+nav.cats a small { color: var(--muted); margin-left: 6px; }
+
+/* categories + cards */
+section.cat { padding-block: 44px 8px; scroll-margin-top: 64px; }
+.cat header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 18px; }
+.cat h2 { font: 900 clamp(40px, 6vw, 72px)/.9 var(--display); text-transform: uppercase; margin: 0; }
+.cat header p { margin: 0; color: var(--muted); max-width: 40em; }
+.cat .count { font: 400 13px/1 var(--mono); color: var(--gold); letter-spacing: .1em; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 22px 18px; }
+.card { min-width: 0; }
+.card .clip { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--plate) center / cover no-repeat; border: 1px solid var(--rule); overflow: hidden; }
+.card video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.card h3 { font: 700 26px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; margin: 12px 0 4px; }
+.card p { margin: 0; font-size: 14px; color: var(--muted); }
+
+/* install + footer */
+.install { margin-top: 56px; padding-block: 36px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; }
+.install h2 { font: 900 44px/.9 var(--display); text-transform: uppercase; margin: 0; }
+.install ol { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.install code { font: 400 14px var(--mono); color: var(--gold); }
+footer { padding-block: 28px 48px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+  color: var(--muted); font: 400 13px/1.4 var(--mono); letter-spacing: .04em; }
+footer .mail { color: var(--text); user-select: all; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">For DaVinci Resolve 21 · Free + Studio</div>
+      <h1>Lazy Title <span>Pack</span></h1>
+    </div>
+    <p class="lead">80 animated titles in five styles. Drag one onto your timeline, type your words in the Inspector, and the intro and outro play by themselves.</p>
+    <div class="stage">
+    <img class="cover" src="cover.jpg" alt="Lazy Title Pack cover: a worn record sleeve, LAZY TITLE PACK in cream on emerald, 80 animated titles for DaVinci Resolve" width="1254" height="1254">
+    <div class="monitor">
+      <video id="promo" src="promo.mp4" poster="posters/promo.jpg" playsinline muted loop autoplay preload="metadata"></video>
+      <span class="tc" aria-hidden="true">PGM · 1920×1080 · 24P</span>
+      <button id="snd" type="button" aria-pressed="false">Sound on</button>
+    </div>
+    </div>
+    <ul class="specs">
+      <li><b>80</b>animated titles</li>
+      <li><b>5</b>categories</li>
+      <li><b>Fonts</b>included</li>
+      <li><b>Any length</b>intro + outro on every title</li>
+    </ul>
+  </header>
+
+  <nav class="cats" id="cats" aria-label="Categories"></nav>
+  <main id="lib"></main>
+
+  <section class="install" aria-labelledby="inst">
+    <h2 id="inst">Install in a minute</h2>
+    <ol>
+      <li>Open <code>Fonts (install these)</code>, double-click each font and press Install.</li>
+      <li>In DaVinci Resolve, double-click <code>Lazy Title Pack.drfx</code> and confirm.</li>
+      <li>Restart Resolve. The titles are in <code>Edit page › Titles › Lazy Artist</code>, one folder per category.</li>
+    </ol>
+    <ol>
+      <li>Drag a title onto a track above your video.</li>
+      <li>Type your words; fonts, colours, position and size are in the Inspector.</li>
+      <li>Make the clip as long as you need: the intro stays at the start, the outro at the end.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Lazy Title Pack · made by Lazy Artist</span>
+    <span>Questions: <span class="mail">flavartcinema@gmail.com</span></span>
+  </footer>
+</div>
+
+<script>
+const DATA = {"categories":["Kinetic","Cinematic","Game & Retro","Light & Neon","Social & Graphic"],"titles":[{"name":"Kinetic Stack","category":"Kinetic","blurb":"Three lines in three type styles (tall condensed, serif italic, wide black) slam in from alternating sides with motion blur and overshoot, then the stack breathes. Exits the way it came.","clip":"D_Kinetic_Stack"},{"name":"Spread Words","category":"Kinetic","blurb":"Three small, widely tracked words placed across the frame around your subject. Each flickers on letter by letter with a slight rise, one after another, and flickers off in reverse.","clip":"D_Spread_Words"},{"name":"Word Morph","category":"Kinetic","blurb":"One word melts into another like liquid metal, then holds; on the way out it melts back and fades. Two text fields, the frame it morphs at and how liquid it gets.","clip":"D_Word_Morph"},{"name":"Word Punch","category":"Kinetic","blurb":"Kinetic word-by-word: four huge condensed words punch in one after another on the beat, alternating colours with a twist and motion blur; the last word stays with a slow push and shrinks away at the end.","clip":"D_Word_Punch"},{"name":"Word Roll","category":"Kinetic","blurb":"A fixed lead-in and a word slot that rolls through three words like a slot machine, landing on the last word in the accent colour. Rolls back the other way on the way out.","clip":"D_Word_Roll"},{"name":"Unfold","category":"Kinetic","blurb":"A line draws out and the letters stand up from lying flat on it one by one, like cards hinged on the baseline, with a little overshoot. Text and line colours.","clip":"D_Unfold"},{"name":"Type Tunnel","category":"Kinetic","blurb":"Outline copies of your word fly out of the centre toward you in an endless tunnel, round the solid word in the middle. Fly speed (or reverse), spacing, colours and tunnel opacity.","clip":"D_Type_Tunnel"},{"name":"Wave Type","category":"Kinetic","blurb":"A heavy condensed word pops up letter by letter, then ripples like a flag in a travelling wave, its colour running from left to right. Wave height, length and speed.","clip":"D_Wave_Type"},{"name":"Liquid Settle","category":"Kinetic","blurb":"A heavy word poured in: it arrives as rippling liquid that thickens and settles into sharp letters with a glossy sheen.","clip":"D_Liquid_Settle"},{"name":"Outline Runner","category":"Kinetic","blurb":"Two lights race round the outline of the word, leaving glowing tails, then the letters fill with colour. Laps, light length, colours and glow.","clip":"D_Outline_Runner"},{"name":"Orbit Ring","category":"Kinetic","blurb":"A ring of text spins in 3D round a centre word: the near side bright, the far side dim and mirrored behind it. Ring size, tilt, letter height, repeats and spin speed.","clip":"D_Orbit_Ring"},{"name":"Elastic Type","category":"Kinetic","blurb":"Fat letters spring up out of the baseline one after another - stretched tall, squashed flat, settling with a rubbery overshoot - over a hot pop shadow. Letter and shadow colours, shadow depth.","clip":"D_Elastic_Type"},{"name":"Flip Letters","category":"Kinetic","blurb":"Every letter flips in on its vertical axis, domino-fashion from the left, overshooting and settling, each with a coloured rim; an underline draws out from the centre once the last one lands. Letter and rim colours, rim weight, underline.","clip":"D_Flip_Letters"},{"name":"Bounce Drop","category":"Kinetic","blurb":"A ground line draws across, then the letters drop onto it one by one - squashing on impact and bouncing twice before they rest - with motion blur. Letter and line colours, drop height, ground line.","clip":"D_Bounce_Drop"},{"name":"Swing Words","category":"Kinetic","blurb":"A rail draws across and each word swings in hanging beneath it, overshooting and settling like a sign on its hooks, word by word. Word and rail colours, rail on or off.","clip":"D_Swing_Words"},{"name":"Cinema Bars","category":"Cinematic","blurb":"Cinema bars slide in to 2.39 scope (or 2.00 or 1.85), a tracked title fades in from the middle inside the lower bar and a small place-and-time line types in at the top left.","clip":"D_Cinema_Bars"},{"name":"Film Credit","category":"Cinematic","blurb":"A vintage film credit: a small tracked line and a light serif italic name burning in out of soft focus, with projector flicker, gate weave, red halation and grain.","clip":"D_Film_Credit"},{"name":"Intertitle","category":"Cinematic","blurb":"A silent-film title card: a dark card with a double border and corner diamonds, a serif italic line appearing word by word, projector flicker and grain.","clip":"D_Intertitle"},{"name":"Luxe Reveal","category":"Cinematic","blurb":"A luxury end card: a wide-tracked serif name settles from very wide and soft to sharp from the centre out, a light glint sweeps once across the letters and an italic tagline fades in.","clip":"D_Luxe_Reveal"},{"name":"Moonrise","category":"Cinematic","blurb":"A cinematic title in a light italic serif: the word breathes in from blur while its letter spacing tightens, a cool moon glow rises behind it, a hairline horizon draws under it and a tracked line fades in beneath, then a soft light passes over the letters. Colours, moon glow and light.","clip":"D_Moonrise"},{"name":"Searchlight","category":"Cinematic","blurb":"A tall word waits in the dark until a soft searchlight beam sweeps across it, swings back and opens up to light the whole word with a warm bloom.","clip":"D_Searchlight"},{"name":"Reflection","category":"Cinematic","blurb":"Wide futuristic type rises out of a glossy floor while its reflection sinks into it, over a glowing floor line that draws out from the middle, then a slow push. Gradient colours, reflection strength and blur.","clip":"D_Reflection"},{"name":"Window Type","category":"Cinematic","blurb":"A solid card with your word cut out of it: the clip shows through giant letters that shrink into place, with a thin edge line round the letters. Card colour, edge colour and start size.","clip":"D_Window_Type"},{"name":"Masthead","category":"Cinematic","blurb":"A magazine masthead: ultra-tall condensed letters rise out of a baseline, an accent rule draws out and a tracked kicker line rises under it, then a slow push.","clip":"D_Masthead"},{"name":"Chapter Title","category":"Cinematic","blurb":"A film chapter card: CHAPTER ONE in small tracked caps between two hairlines that draw outward, and the chapter name rising in below in a large italic serif. Chapter line, title, colour and line length.","clip":"D_Chapter_Title"},{"name":"Trailer Title","category":"Cinematic","blurb":"A movie-trailer card: wide metallic letters fade in from the middle while their tracking slowly tightens and the frame pushes in, a light sweeps across the metal and throws a blue lens streak, and COMING SOON appears underneath. Metal colours, streak colour, sweep, push.","clip":"D_Trailer_Title"},{"name":"Smoke Reveal","category":"Cinematic","blurb":"An elegant serif forms out of drifting smoke: the letters dissolve in through the noise as it rises, smoke curling off the edge of what is forming and lingering faintly around the word. Letter and smoke colours, smoke amount, reveal length.","clip":"D_Smoke_Reveal"},{"name":"Location Stamp","category":"Cinematic","blurb":"The film way of saying where we are: an accent bar draws, the place types itself in letter by letter with a block cursor running ahead, then the time line under it - and types itself out again at the end. Text and accent colours, typing speed.","clip":"D_Location_Stamp"},{"name":"Flare Title","category":"Cinematic","blurb":"A hot anamorphic flare races across the frame and leaves the word lit behind it - glowing hot, then cooling - with a faint streak left across the screen. Letter and flare colours, flare strength, the streak left behind.","clip":"D_Flare_Title"},{"name":"Focus Pull","category":"Cinematic","blurb":"A rack focus between two planes: A FILM BY starts sharp and falls soft as the title racks in out of a heavy defocus, hunting once before it locks, blooming while it is soft, with a slow push. Text colour, defocus, bloom.","clip":"D_Focus_Pull"},{"name":"Boss Warning","category":"Game & Retro","blurb":"WARNING: the frame washes red and breathes, two hazard bands open from the middle and scroll opposite ways, heavy tracked caps flicker on and blink red and white, a yellow warning line flashing underneath.","clip":"D_Boss_Warning"},{"name":"Fighter","category":"Game & Retro","blurb":"ROUND 1 - FIGHT: heavy slanted caps in molten gold on a dark-red extrusion slam in word by word in a haze of heat, health bars and the round timer counting down across the top.","clip":"D_Fighter"},{"name":"Level Up","category":"Game & Retro","blurb":"LEVEL UP: gold pixel caps on a violet block grow in over stepped pixel rays turning behind them, the level counter ticks up above and the EXP bar fills underneath.","clip":"D_Level_Up"},{"name":"Outrun","category":"Game & Retro","blurb":"Synthwave: chrome slanted caps on a violet block slide in from both sides over a striped sunset sun and a neon grid rushing to the horizon, speed streaks flying past, a pink script line written underneath.","clip":"D_Outrun"},{"name":"Race Start","category":"Game & Retro","blurb":"Race start: five red start lights come on one by one, go out, and heavy slanted caps launch in from the right trailing a long red speed shadow, a chequered strip racing in underneath.","clip":"D_Race_Start"},{"name":"RPG Dialog","category":"Game & Retro","blurb":"A role-playing-game dialog box: a blue box with a white double border opens, a name tag lands on its edge, your words are typed in letter by letter in a pixel font, and the next-page arrow bobs in the corner.","clip":"D_RPG_Dialog"},{"name":"Stage Clear","category":"Game & Retro","blurb":"STAGE CLEAR: gold pixel caps bounce in out of order with a hard shadow, sparkles burst out and twinkle round the word, and the bonus tally rolls up underneath to your total score.","clip":"D_Stage_Clear"},{"name":"Pinball DMD","category":"Game & Retro","blurb":"A pinball dot-matrix display: orange plasma dots on a dark panel, your words scrolling in from the side, flashing inverse twice, a sparkle running across the dots, everything glowing like real plasma. Colour, dots across, panel width and glow.","clip":"D_Pinball_DMD"},{"name":"CRT Power On","category":"Game & Retro","blurb":"The title switches on like an old TV: a white line opens into the picture, the beam blooms and settles into pixel type behind an RGB phosphor mask, scanlines, colour split and flicker on a curved tube; it switches off the same way. Green, amber, white or pink phosphor.","clip":"D_CRT_Power_On"},{"name":"Departure Board","category":"Game & Retro","blurb":"A split-flap departure board: every letter on its own dark tile with the hinge line across it, the tile flipping over three times before its letter lands, left to right. Letter and tile colours, speed per letter and tile gap. The tiles follow whatever you type.","clip":"D_Departure_Board"},{"name":"Game Over","category":"Game & Retro","blurb":"GAME OVER the arcade way: blocky red letters drop in one by one and bounce on a hard shadow, CONTINUE? types in underneath and a countdown punches down to zero, with CRT scanlines and glow. Letter colours, continue colour, count from, frames per count, scanlines and glow.","clip":"D_Game_Over"},{"name":"Combo Counter","category":"Game & Retro","blurb":"A fighting-game hit counter: a slanted gold number punches up on every hit with a white flash and a burst of speed lines, and COMBO! slams in underneath. Number of hits, frames per hit, number colours, word colour, speed lines and glow.","clip":"D_Combo_Counter"},{"name":"High Score","category":"Game & Retro","blurb":"An arcade high-score table on a dark panel: the header and five rainbow rows type in, the top score flashes through the colours as the new name is entered letter by letter behind a blinking cursor, and NEW HIGH SCORE! blinks underneath. Every line is yours; header colour, typing speed, panel, scanlines and glow.","clip":"D_High_Score"},{"name":"Tape Loader","category":"Game & Retro","blurb":"An 8-bit home computer loading from tape: the border flickers in loading stripes - red and cyan pilot tone, then yellow and blue data - the title loads in the machine's interleaved line order, a third of the screen at a time, then its colour bands arrive and the border settles. Load speed, stripes, border width, the border after loading, and glow.","clip":"D_Tape_Loader"},{"name":"Teletext","category":"Game & Retro","blurb":"A teletext page arrives: the header searches through page numbers and the clock ticks, then the rows land top to bottom - a blue banner with mosaic graphics, your title in double-height letters, a line under it, an index and the four coloured keys. Page black and glow.","clip":"D_Teletext"},{"name":"Arcade Logo","category":"Game & Retro","blurb":"The arcade logo from the Lazy Pack promo: two chrome lines slam in from above and below with a shake and a colour fringe, a spiky gold badge pops and turns, an OUT NOW ribbon wipes in and blinks, with shockwave rings and pixel bursts on every hit. Every line is yours; badge position, badge, ribbon and hits on or off.","clip":"D_Arcade_Logo"},{"name":"Combo Unlock","category":"Game & Retro","blurb":"The combo counter from the Lazy Pack promo: X41 COMBO over a big chrome number that rolls up to its target, a chrome label under it and a tilted gold UNLOCKED! sticker slamming in with a ring and a pixel burst - or Power Up mode with a ten-block meter filling to MAX!. Count, mode, hit frame and every line are yours.","clip":"D_Combo_Unlock"},{"name":"Select Screen","category":"Game & Retro","blurb":"A game select screen from the Lazy Pack promo: SELECT YOUR WEAPON over up to ten tiles, a gold cursor jumping from tile to tile on a rhythm and landing on your pick, its name slammed in big chrome between pixel arrows. Tile count, selected tile, rhythm, landing frame, every tile name and the header are yours.","clip":"D_Select_Screen"},{"name":"Arcade HUD","category":"Game & Retro","blurb":"An arcade HUD over your shot, as in the Lazy Pack promo: 1UP and a six-digit score counting up in the top left, two lines top right, CREDIT 01 blinking bottom right, all in pixel type with hard drop shadows, kept title-safe. Score, count-up time, margin and every line are yours.","clip":"D_Arcade_HUD"},{"name":"Out Now Stage","category":"Game & Retro","blurb":"The synthwave finale from the Lazy Pack promo: a striped sun rises behind a magenta grid rolling toward you, two chrome lines slam in above, OUT NOW blinks in gold between little stars with a subline under it. Grid speed, sun, glow and every line are yours.","clip":"D_Out_Now_Stage"},{"name":"Aurora Type","category":"Light & Neon","blurb":"A heavy serif word filled with drifting aurora light that flows through the letters, with its glow spilling around them; it comes into focus on the way in. Two light colours and flow speed.","clip":"D_Aurora_Type"},{"name":"Neon Sign","category":"Light & Neon","blurb":"A thin word lit like a neon tube: white-hot core and coloured glow, letters stuttering on one by one with the buzz of a real sign, a second smaller tube underneath, and a faint hum flicker while it holds.","clip":"D_Neon_Sign"},{"name":"Light Write","category":"Light & Neon","blurb":"A heavy serif italic word written on by a hot spark: the fresh ink burns orange and cools to its colour as the spark wanders along the letters. Set Write Width to your word.","clip":"D_Light_Write"},{"name":"Heat Word","category":"Light & Neon","blurb":"A heavy word ignites: letters flicker on in random order white-hot with a fire-coloured bloom and a red / cyan split ghost, then cool to the final colour while the glow breathes.","clip":"D_Heat_Word"},{"name":"Glitch Logo","category":"Light & Neon","blurb":"A slanted heavy logo glitches in through red / cyan split ghosts and torn horizontal slices, settles clean, and bursts again now and then. A mono sub line decodes underneath.","clip":"D_Glitch_Logo"},{"name":"Prism Type","category":"Light & Neon","blurb":"White caps that arrive split into a rainbow fan, the colours closing in until the word settles clean white with prism fringes on its edges, a light glint crossing it. Fan, edge fringe and glint.","clip":"D_Prism_Type"},{"name":"Neon Frame","category":"Light & Neon","blurb":"A neon tube rectangle stutters on round your words in one colour, then the words light up inside it in a second colour, letter by letter, both humming like real neon. Two tube colours, frame size, glow and hum.","clip":"D_Neon_Frame"},{"name":"Sunset Glow","category":"Light & Neon","blurb":"Heavy caps rising in letter by letter, filled with a sunset gradient that drifts slowly through them, a long soft glow falling from the letters in the dusk colour. Three gradient colours, glow and drift.","clip":"D_Sunset_Glow"},{"name":"Neon Script","category":"Light & Neon","blurb":"A cursive neon sign: the dark glass tube is there first, then the script lights up letter by letter with little stutters, an underline tube in a second colour buzzes on, and the whole sign hums and throws its light around it. Tube and underline colours, unlit glass, glow and hum.","clip":"D_Neon_Script"},{"name":"Hot Metal","category":"Light & Neon","blurb":"Heavy letters stamp in white-hot and cool through yellow, orange and red into dark brushed metal while their rim glows longest, and a cold glint runs across the finished steel. Cooling time, heat glow and glint.","clip":"D_Hot_Metal"},{"name":"Bokeh Type","category":"Light & Neon","blurb":"An elegant word pulls focus out of a soft blur while bokeh lights drift around it and crowd inside the letters, each with the bright rim of a real lens bokeh. Warm, cool, rose or gold; text colour, amount, size, drift, focus pull and glow.","clip":"D_Bokeh_Type"},{"name":"Light Trail","category":"Light & Neon","blurb":"Each letter streaks in from the left as a stretched beam of light, leaving a long glowing trail in two colours that fades as the word settles, with a thin beam line running ahead of them. Letter and trail colours, trail length and glow.","clip":"D_Light_Trail"},{"name":"Star Type","category":"Light & Neon","blurb":"The word built from twinkling star points with cross-shaped spikes, appearing in a sparkling sweep, with a little stardust drifting around it. Star colour, stars, size, twinkle, spikes, stardust and glow.","clip":"D_Star_Type"},{"name":"Holo Type","category":"Light & Neon","blurb":"A projected hologram: a beam rises from a glowing emitter, the word builds up from the bottom behind a bright scan line, then holds with moving scanlines, red and blue ghosts, flicker and jitter. Hologram colour, beam, scanlines, flicker, jitter and glow.","clip":"D_Holo_Type"},{"name":"Pulse Glow","category":"Light & Neon","blurb":"An outlined word that pulses on a rhythm: the outline flickers on, then on every beat its glow flares, the letters flash full in a second colour and a copy of the outline ripples outward and fades. Outline and fill colours, pulse rhythm, fill flash, ripples and glow.","clip":"D_Pulse_Glow"},{"name":"Data Tag","category":"Social & Graphic","blurb":"A HUD annotation: a target dot pops, a leader line draws to the label, corner brackets snap round it and two mono lines decode letter by letter. Move it with Position to pin it to anything in the shot.","clip":"D_Data_Tag"},{"name":"Label Tape","category":"Social & Graphic","blurb":"A label-maker strip: white embossed letters on coloured plastic tape, slapped onto the shot at a slight angle with a bounce and a soft shadow under it. Tape colour, letter colour, tape length and angle.","clip":"D_Label_Tape"},{"name":"Lower Third","category":"Social & Graphic","blurb":"A sports-broadcast lower third that fits your text: a slanted accent blade grows, the dark name plate wipes out of it with slanted ends, the name rises out of the plate letter by letter, the light role plate wipes in underneath with the role sliding in, a soft shadow under both and one light sweep across. Colours, margin, slant, shadow, sweep, left edge, height and size.","clip":"D_Lower_Third"},{"name":"Marker Note","category":"Social & Graphic","blurb":"A real marker highlight swipes across, bold words pop on top of it one by one and a handwritten note scribbles itself in at an angle. Set Highlight Length to fit your text.","clip":"D_Marker_Note"},{"name":"Sticker Pop","category":"Social & Graphic","blurb":"The word as a die-cut sticker: thick white border and a soft drop shadow, popping on with a springy twist, then a slow wobble. Peels back off on the way out.","clip":"D_Sticker_Pop"},{"name":"Ticker Stack","category":"Social & Graphic","blurb":"A solid expanded word flips in letter by letter between two outlined ticker rows that slide in from the sides and keep scrolling in opposite directions for as long as the title lasts.","clip":"D_Ticker_Stack"},{"name":"Marquee","category":"Social & Graphic","blurb":"Two rows of a giant outline word loop across the frame in opposite directions behind a thin, tall solid title that rises in letter by letter. Any words, scroll speed and opacity.","clip":"D_Marquee"},{"name":"Karaoke Lyric","category":"Social & Graphic","blurb":"A lyric rises in dim, then the sung colour fills it letter by letter at the speed you set (frames per letter), with a soft glow. Any lyric, one or two lines.","clip":"D_Karaoke_Lyric"},{"name":"Quote Card","category":"Social & Graphic","blurb":"A quote card: big quote marks swing in, the quote rises in word by word in an elegant italic, a rule draws under it and the author slides in. Quote and author are yours; quote and accent colours.","clip":"D_Quote_Card"},{"name":"Pill Tags","category":"Social & Graphic","blurb":"Three rounded tag pills pop in one after another with a bounce, each in its own colour and sized to its word - hashtags, credits, a line-up. Three pill colours, text colour and spacing; the three words are yours.","clip":"D_Pill_Tags"},{"name":"Outline Fill","category":"Social & Graphic","blurb":"A huge outline word draws in letter by letter, then fills up from the bottom like liquid with a bright surface line riding the level. Drains back out on the way out.","clip":"D_Outline_Fill"},{"name":"Subscribe Button","category":"Social & Graphic","blurb":"A red pill button and a bell pop in; a tap presses the button - SUBSCRIBE becomes SUBSCRIBED and the button goes dark - then taps the bell, which rings and gets its badge. Both button texts are yours (FOLLOW / FOLLOWING ...); button colours before and after, widths, tap on or off.","clip":"D_Subscribe_Button"},{"name":"Callout Line","category":"Social & Graphic","blurb":"An annotation: a dot pops and pulses on the point you want to show, a line runs up from it and out to the right, the title rises out of the line and a subtitle slides in under it. Use Position to put the dot on your subject. Text and line colours, line height and length.","clip":"D_Callout_Line"},{"name":"Chat Bubble","category":"Social & Graphic","blurb":"A message arrives: the avatar and name pop in, a bubble appears with bouncing typing dots, then grows into your message, which types in. Bubble, text and avatar colours, bubble width to fit your message; name, initials and time are yours.","clip":"D_Chat_Bubble"},{"name":"Progress Bar","category":"Social & Graphic","blurb":"A label rises in over a rounded track, the fill runs to your target with a glowing head and the percentage counting up as it rides along, and the bar flashes when it lands. Fill and text colours, target %, fill time, glow.","clip":"D_Progress_Bar"}]};
+const NOTE = {
+  "Kinetic": "Type that moves: letters that bounce, flip, swing, stack and punch in on the beat.",
+  "Cinematic": "Trailer titles, film credits, chapter cards and quiet serif reveals.",
+  "Game & Retro": "Arcade screens, fighting-game HUDs, high-score tables, teletext and tape loaders.",
+  "Light & Neon": "Neon tubes, hot metal, light trails, prisms and holograms.",
+  "Social & Graphic": "Lower thirds, tags, chat bubbles, callouts and buttons for creators."
+};
+const slug = s => s.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "");
+const first = s => (s.match(/^.*?[.!?](\s|$)/) || [s])[0].trim();
+const nav = document.getElementById("cats"), lib = document.getElementById("lib");
+for (const c of DATA.categories) {
+  const items = DATA.titles.filter(t => t.category === c);
+  const a = document.createElement("a");
+  a.href = "#" + slug(c); a.innerHTML = `${c}<small>${items.length}</small>`;
+  nav.appendChild(a);
+  const sec = document.createElement("section");
+  sec.className = "cat"; sec.id = slug(c);
+  sec.innerHTML = `<header><h2>${c}</h2><span class="count">${items.length} TITLES</span><p>${NOTE[c] || ""}</p></header><div class="grid"></div>`;
+  const grid = sec.querySelector(".grid");
+  for (const t of items) {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `<div class="clip" style="background-image:url('posters/${t.clip}.jpg')">
+        <video data-src="loops/${t.clip}.mp4" poster="posters/${t.clip}.jpg" muted loop playsinline preload="none" aria-label="${t.name} preview"></video></div>
+      <h3>${t.name}</h3><p>${first(t.blurb)}</p>`;
+    grid.appendChild(card);
+  }
+  lib.appendChild(sec);
+}
+// loops play only while on screen (and not at all when the viewer asks for less motion: hover plays them)
+const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const vids = [...document.querySelectorAll(".card video")];
+const load = v => { if (!v.src) v.src = v.dataset.src; };
+if (still) {
+  vids.forEach(v => { v.parentElement.addEventListener("mouseenter", () => { load(v); v.play().catch(() => {}); });
+                      v.parentElement.addEventListener("mouseleave", () => v.pause()); });
+} else if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { load(v); v.play().catch(() => {}); } else v.pause();
+  }), { rootMargin: "200px 0px" });
+  vids.forEach(v => io.observe(v));
+} else vids.forEach(v => { load(v); v.autoplay = true; });
+const promo = document.getElementById("promo"), snd = document.getElementById("snd");
+if (still) { promo.removeAttribute("autoplay"); promo.pause(); }
+snd.addEventListener("click", () => {
+  promo.muted = !promo.muted;
+  if (!promo.muted) { promo.currentTime = 0; promo.play().catch(() => {}); }
+  snd.textContent = promo.muted ? "Sound on" : "Sound off";
+  snd.setAttribute("aria-pressed", String(!promo.muted));
+});
+</script>
+</body>
+</html>
